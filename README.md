@@ -9,17 +9,18 @@ Neste projeto, criei uma API que permite aos usuários realizar diversas ações
 Desenvolvido com Node.js, TypeScript e MySQL, este projeto é uma prova da minha habilidade em transformar ideias em realidade.
 
 Algumas das bibliotecas utilizadas nesta API são: Express, Jsonwebtoken, Bcrypt, Nodemailer, Multer e Dotenv.
-
 </br>
 
+# Imagens do Projeto Ornitorrinco
+
 <div align="center">
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Fenix/blob/main/Site%20Xbox/src/img/base/img%20do%20projeto%20para%20o%20GitHub/P1.png?raw=true" width="400"/>
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img01.png" width="400"/>
 
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Fenix/blob/main/Site%20Xbox/src/img/base/img%20do%20projeto%20para%20o%20GitHub/P2.png?raw=true" width="400"/>
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img02.png" width="400"/>
 
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Fenix/blob/main/Site%20Xbox/src/img/base/img%20do%20projeto%20para%20o%20GitHub/P3.png?raw=true" width="400"/>
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img03.png" width="400"/>
 
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Fenix/blob/main/Site%20Xbox/src/img/base/img%20do%20projeto%20para%20o%20GitHub/P4.png?raw=true" width="400"/>
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img04.png" width="400"/>
 
 </div>
 
