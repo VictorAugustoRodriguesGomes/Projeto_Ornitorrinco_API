@@ -4,7 +4,7 @@ Olá! Meu nome é Victor Augusto e sou responsável por desenvolver esse projeto
 
 O objetivo deste projeto é demonstrar minhas habilidades como desenvolvedor.
 
-Neste projeto, criei uma API que permite aos usuários realizar diversas ações, como: criar contas, recuperar senhas, fazer login, visualizar e atualizar suas informações pessoais e de conta, além de alterar a foto de perfil. A API também inclui um sistema de autenticação em dois fatores (2FA) via e-mail.
+Neste projeto, criei uma API REST que permite aos usuários realizar diversas ações, como: criar contas, recuperar senhas, fazer login, visualizar e atualizar suas informações pessoais e de conta, além de alterar a foto de perfil. A API também inclui um sistema de autenticação em dois fatores (2FA) via e-mail.
 
 Desenvolvido com Node.js, TypeScript e MySQL, este projeto é uma prova da minha habilidade em transformar ideias em realidade.
 
@@ -37,3 +37,4 @@ Algumas das bibliotecas utilizadas nesta API são: Express, Jsonwebtoken, Bcrypt
 Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
+</br>
