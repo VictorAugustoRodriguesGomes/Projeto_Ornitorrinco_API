@@ -21,7 +21,7 @@ router.put('/sendVerificationCodebyEmail', userController.sendVerificationCodeby
 router.put('/validateVerificationCode', userController.validateVerificationCode);
 
 
-// rota protegida
+// Protected Route
 router.patch('/updateUsersPassword', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersPassword);
 router.patch('/updateUsersDisplayName', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersDisplayName);
 router.patch('/upload', authenticationMiddlewares.authenticationMiddlewares, handleUpload, userController.upload, errorHandlerforUpload.errorHandler);
