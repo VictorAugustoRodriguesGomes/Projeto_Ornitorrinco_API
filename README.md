@@ -37,4 +37,3 @@ Algumas das bibliotecas utilizadas nesta API são: Express, Jsonwebtoken, Bcrypt
 Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
-</br>
