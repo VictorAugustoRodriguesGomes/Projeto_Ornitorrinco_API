@@ -46,12 +46,23 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 </div>
 
 # Pré-requisitos
-#### Para poder o alterar o projeto, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+#### Para poder o alterar ou executar a API no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 1. [Git](https://git-scm.com),
 2. [Node.js](https://nodejs.org/pt),
 3. [Visual Studio](https://code.visualstudio.com/) ou outro editor de código.
 
 </br>
+
+# Sobre o aplicativo para dispositivos móveis Android
+#### Para poder ter aceso ao aplicativo clique no link abaixo: 
+1. [Baixar APK do Projeto SyDis](https://github.com/VictorAugustoRodriguesGomes/Projeto_SyDis/tree/main/APK%20do%20projeto%20SyDis).
+
+#### O link do repositório do aplicativo se encontra abaixo:
+1. [Projeto Ornitorrinco Frontend Mobile](https://github.com/VictorAugustoRodriguesGomes/Projeto_SyDis/tree/main/APK%20do%20projeto%20SyDis).
+
+#### Para poder ter acesso e alterar ou executar a API no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+1. [Git](https://git-scm.com),
+2. [Android Studio](https://developer.android.com/studio?hl=pt-br). 
 
 # Licença
 
