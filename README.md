@@ -4,11 +4,19 @@ Olá! Meu nome é Victor Augusto e sou responsável por desenvolver esse projeto
 
 O objetivo deste projeto é demonstrar minhas habilidades como desenvolvedor.
 
-Neste projeto, criei uma API REST que permite aos usuários realizar diversas ações, como: criar contas, recuperar senhas, fazer login, visualizar e atualizar suas informações pessoais e de conta, além de alterar a foto de perfil. A API também inclui um sistema de autenticação em dois fatores (2FA) via e-mail.
+Neste projeto, implementei uma arquitetura full stack que abrange um backend e um frontends, todos integrados a um único banco de dados. A comunicação entre os componentes é realizada por meio de uma API RESTful, garantindo a eficiência na troca de dados.
 
-Desenvolvido com Node.js, TypeScript e MySQL, este projeto é uma prova da minha habilidade em transformar ideias em realidade.
+Primeiramente, criei uma API REST que permite aos usuários realizar funções para criar contas, recuperar senhas, fazer login, visualizar e atualizar suas informações, além de alterar a foto de perfil. A API também inclui um sistema de autenticação em dois fatores (2FA) via e-mail.
+
+A api foi desenvolvido com Node.js, TypeScript e MySQL.
 
 Algumas das bibliotecas utilizadas nesta API são: Express, Jsonwebtoken, Bcrypt, Nodemailer, Multer e Dotenv.
+
+O projeto Ornitorrinco também apresenta um aplicativo para dispositivos móveis Android, que se integra à API descrita anteriormente. Esse aplicativo se comunica com uma das vertentes frontend do projeto, proporcionando aos usuários de dispositivos móveis Android a melhor experiência e aproveitamento das funcionalidades do backend.
+
+O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de programação Java e a biblioteca Retrofit para facilitar a comunicação com a API.
+
+
 </br>
 
 # Imagens do Projeto Ornitorrinco
