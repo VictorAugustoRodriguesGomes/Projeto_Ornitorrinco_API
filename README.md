@@ -19,7 +19,7 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 </br>
 
-# Imagens do Projeto Ornitorrinco referente a API
+## Imagens do Projeto Ornitorrinco referente a API
 
 <div align="center">
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img01.png" width="400"/>
@@ -32,7 +32,7 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 </div>
 
-# Imagens do Projeto Ornitorrinco referente ao aplicativo para dispositivos móveis Android
+## Imagens do Projeto Ornitorrinco referente ao aplicativo para dispositivos móveis Android
 
 <div align="center">
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img05.png" width="400"/>
