@@ -4,7 +4,7 @@ Olá! Meu nome é Victor Augusto e sou responsável por desenvolver esse projeto
 
 O objetivo deste projeto é demonstrar minhas habilidades como desenvolvedor.
 
-Neste projeto, implementei uma arquitetura full stack que abrange um backend e um frontends, todos integrados a um único banco de dados. A comunicação entre os componentes é realizada por meio de uma API RESTful, garantindo a eficiência na troca de dados.
+Neste projeto, desenvolvi uma arquitetura full stack que inclui um backend e dois frontends, todos integrados a um único banco de dados. A comunicação entre os componentes é realizada por meio de uma API RESTful, garantindo a eficiência na troca de dados.
 
 Primeiramente, criei uma API REST que permite aos usuários realizar funções para criar contas, recuperar senhas, fazer login, visualizar e atualizar suas informações, além de alterar a foto de perfil. A API também inclui um sistema de autenticação em dois fatores (2FA) via e-mail.
 
@@ -12,10 +12,13 @@ A api foi desenvolvido com Node.js, TypeScript e MySQL.
 
 Algumas das bibliotecas utilizadas nesta API são: Express, Jsonwebtoken, Bcrypt, Nodemailer, Multer e Dotenv.
 
-O projeto Ornitorrinco também apresenta um aplicativo para dispositivos móveis Android, que se integra à API descrita anteriormente. Esse aplicativo se comunica com uma das vertentes frontend do projeto, proporcionando aos usuários de dispositivos móveis Android a melhor experiência e aproveitamento das funcionalidades do backend.
+O site do projeto Ornitorrinco oferece uma interface front-end do projeto, permitindo que os usuários acessem todas as funcionalidades do backend. Com integração à API mencionada anteriormente, o site oferece acesso completo a todas as funcionalidades e dados, assegurando uma navegação fluida e intuitiva. Dessa forma, independentemente do dispositivo utilizado, todos podem aproveitar ao máximo os serviços oferecidos pelo backend.
 
-O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de programação Java e a biblioteca Retrofit para facilitar a comunicação com a API.
+O site foi desenvolvido utilizando React, incorporando HTML, CSS e JavaScript. A biblioteca Axios também foi utilizada para otimizar a comunicação com a API.
 
+O projeto Ornitorrinco também apresenta um aplicativo para dispositivos móveis Android, que se integra à API descrita anteriormente. Esse aplicativo funciona como uma das interfaces front-end do projeto, proporcionando aos usuários de dispositivos móveis Android as mesmas funções e compartilhando os mesmos dados, garantindo assim a melhor experiência e aproveitamento das funcionalidades do backend.
+
+O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de programação Java e a biblioteca Retrofit para otimizar a comunicação com a API.
 
 </br>
 
