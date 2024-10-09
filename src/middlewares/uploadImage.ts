@@ -4,26 +4,6 @@ import path from 'path';
 import fs from 'fs';
 import { ResponseReq } from "../interfaces/ResponseReq";
 
-
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         const uploadPath: string = './public/uploads/profile';
-//         if (!fs.existsSync(uploadPath)) {
-//             fs.mkdirSync(uploadPath, { recursive: true });
-//         }
-//         cb(null, uploadPath);
-//     },
-//     filename: (req: Request, file, cb) => {
-
-//         if (file && file.size > 1024 * 1024 * 1) {
-//             const userUID = req.user[0].uid;
-//             cb(null, userUID + '.png');
-//         } else {
-//             cb(null, 'file.png');
-//         }
-//     }
-// });
-
 const storage = multer.memoryStorage();
 
 const fileFilter = (req: Request, file: Express.Multer.File, cb: any) => {
@@ -53,7 +33,7 @@ export const handleUpload = (req: Request, res: Response, next: NextFunction) =>
         }
 
         if (!req.file) {
-            return next(new Error('No file uploaded4gbhjnkm'));
+            return next(new Error('No file upload'));
         }
 
         const uid = req.user.uid + '.webp';

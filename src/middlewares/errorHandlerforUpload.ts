@@ -11,7 +11,7 @@ const errorHandler = (error: any, req: Request, res: Response, next: NextFunctio
     };
 
     if (error.message === 'File too large') {
-        response.text = 'File too large fgvhbujnkml';
+        response.text = 'File too large';
     }
 
     res.status(response.code).json(response);

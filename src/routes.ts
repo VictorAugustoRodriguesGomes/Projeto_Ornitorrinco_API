@@ -10,21 +10,21 @@ const userController = UserController;
 
 router.get('/users', userController.getAll);
 
-router.post('/user', userController.createUser);
+router.post('/user/createUser', userController.createUser);
 
-router.delete('/user/:id', userController.deleteUsers);
+router.put('/user/signInWithEmailAndPassword', userController.signInWithEmailAndPassword);
+router.put('/user/sendPasswordResetEmail', userController.sendPasswordResetEmail);
 
-router.put('/signInWithEmailAndPassword', userController.signInWithEmailAndPassword);
-router.put('/sendPasswordResetEmail', userController.sendPasswordResetEmail);
-
-router.put('/sendVerificationCodebyEmail', userController.sendVerificationCodebyEmail);
-router.put('/validateVerificationCode', userController.validateVerificationCode);
-
+router.put('/user/validateVerificationCode', userController.validateVerificationCode);
 
 // Protected Route
-router.patch('/updateUsersPassword', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersPassword);
-router.patch('/updateUsersDisplayName', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersDisplayName);
-router.patch('/upload', authenticationMiddlewares.authenticationMiddlewares, handleUpload, userController.upload, errorHandlerforUpload.errorHandler);
+router.get('/user/profile', authenticationMiddlewares.authenticationMiddlewares, userController.userProfile);
 
+router.patch('/user/profile/updateUsersPassword', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersPassword);
+router.patch('/user/profile/updateUsersDisplayName', authenticationMiddlewares.authenticationMiddlewares, userController.updateUsersDisplayName);
+
+router.patch('/user/profile/updateUsersPhoto', authenticationMiddlewares.authenticationMiddlewares, handleUpload, userController.upload, errorHandlerforUpload.errorHandler);
+
+router.delete('/user/profile/deleteUsers', authenticationMiddlewares.authenticationMiddlewares, userController.deleteUsers);
 
 export default router;

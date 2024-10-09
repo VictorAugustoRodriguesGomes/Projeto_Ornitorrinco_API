@@ -1,16 +1,18 @@
 import bcrypt from "bcrypt";
 
 import Connection from "./connection";
-
 import userServices from "../services/userServices";
+import authenticationModel from "./authenticationModel";
 
 import { User } from "../interfaces/User";
 import { ResponseReq } from "../interfaces/ResponseReq";
 
+import * as fs from 'fs';
+
 const connection = Connection;
 
 const getAll = async () => {
-    const [users] = await connection.execute("SELECT * FROM users")
+    const [users] = await connection.execute("SELECT * FROM users");
     return users;
 };
 
@@ -55,17 +57,28 @@ const createUser = async (user: User) => {
         emailVerification: emailVerification,
     }
 
+    const sendVerificationCodebyEmail = await authenticationModel.sendVerificationCodebyEmail(userResponse, "Código para verificar seu endereço de e-mail: ");
+
+    if (sendVerificationCodebyEmail.code != 200) {
+        const response: ResponseReq = {
+            code: 404,
+            status: 'error',
+            text: 'The "email" entered is non-existent'
+        };
+        return response;
+    }
+
     const response: ResponseReq = {
         code: 201,
         status: 'success',
-        text: 'user created successfully',
+        text: 'user created successfully / verification email sent',
         user: userResponse
     };
     return response;
 };
 
 const updateUsersCodeVerification = async (uid: string, codeVerification: string | null) => {
-    
+
     const [users]: User[] = await getUID(uid) as User[];
 
     if (!users) {
@@ -91,11 +104,10 @@ const updateUsersCodeVerification = async (uid: string, codeVerification: string
     };
 
     return response;
-
 };
 
 const updateUsersEmailVerification = async (uid: string, emailVerification: boolean) => {
-    
+
     const [users]: User[] = await getUID(uid) as User[];
 
     if (!users) {
@@ -180,16 +192,73 @@ const updateUsersDisplayName = async (tokenUid: string, user: User) => {
     };
 
     return response;
-    
 };
 
-const deleteUsers = async (id: string) => {
-    const removedUsers = await connection.execute('DELETE FROM users WHERE uid = ?', [id]);
-    return {
+const updateUsersPhoto = async (tokenUid: string, linkPhoto: string) => {
+
+    const [users]: User[] = await getUID(tokenUid) as User[];
+
+    if (!users) {
+        const response: ResponseReq = {
+            code: 404,
+            status: 'error',
+            text: 'The "user" does not exist'
+        };
+        return response;
+    }
+
+    const { email, displayName, password, emailVerification, codeVerification } = users;
+
+    if (users.photo == "/public/uploads/profile/user.webp") {
+        const query = 'UPDATE users SET uid = ?, displayName = ?, email = ?, password = ?, photo = ?, emailVerification = ?, codeVerification = ? WHERE uid = ?';
+
+        const [updatedUsers] = await connection.execute(query, [tokenUid, displayName, email, password, linkPhoto, emailVerification, codeVerification, tokenUid]);
+    }
+
+    const userResponse: User = {
+        uid: tokenUid,
+        displayName: displayName,
+        email: email,
+        photo: linkPhoto,
+        emailVerification: emailVerification,
+    }
+
+    const response: ResponseReq = {
+        code: 200,
         status: 'success',
-        text: 'successfully deleted user',
-        removedUsers: removedUsers
+        text: 'Image uploaded successfully',
+        user: userResponse
     };
+
+    return response;
+};
+
+const deleteUsers = async (uid: string) => {
+
+    const [users]: User[] = await getUID(uid) as User[];
+
+    if (!users) {
+        const response: ResponseReq = {
+            code: 404,
+            status: 'error',
+            text: 'The "user" entered is non-existent'
+        };
+        return response;
+    }
+
+    if (users.photo != "/public/uploads/profile/user.webp") {
+        fs.unlink(users.photo.slice(1), (err) => {});
+    }
+
+    const removedUsers = await connection.execute('DELETE FROM users WHERE uid = ?', [uid]);
+
+    const response: ResponseReq = {
+        code: 200,
+        status: 'success',
+        text: 'successfully deleted user'
+    };
+
+    return response;
 };
 
 export default {
@@ -197,9 +266,10 @@ export default {
     getUID,
     getEmail,
     createUser,
+    deleteUsers,
+    updateUsersPhoto,
     updateUsersPassword,
     updateUsersDisplayName,
     updateUsersCodeVerification,
-    updateUsersEmailVerification,
-    deleteUsers
+    updateUsersEmailVerification
 }

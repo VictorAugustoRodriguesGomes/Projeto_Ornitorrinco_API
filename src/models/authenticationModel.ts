@@ -1,11 +1,9 @@
 import bcrypt from "bcrypt";
-
-import Connection from "./connection";
-
-import userServices from "../services/userServices";
+import jwt from "jsonwebtoken";
 
 import userModel from "./userModel";
-import jwt from "jsonwebtoken";
+import Connection from "./connection";
+import userServices from "../services/userServices";
 
 import  { User }  from "../interfaces/User";
 import { ResponseReq } from "../interfaces/ResponseReq";
@@ -28,25 +26,31 @@ const signInWithEmailAndPassword = async (user: User) => {
     }
 
     if (await bcrypt.compare(password ?? '', users.password ?? '0')) {
-        // const token = jwt.sign({ uid: users[index].uid }, 'secret', { expiresIn: '1h' });
-
-        const token = jwt.sign({ uid: users.uid }, process.env.JWT_PASS || '', { expiresIn: '100h' });
 
         const userResponse: User = {
             uid: users.uid,
             displayName: users.displayName,
             email: users.email,
-            password: '"password" not available',
             photo: users.photo,
             emailVerification: users.emailVerification,
+        }
+        
+        const sendEmail = await sendVerificationCodebyEmail(userResponse, 'Código de segurança para acessar sua conta: ')
+
+        if(sendEmail.code != 200){
+            const response: ResponseReq = {
+                code: 404,
+                status: 'error',
+                text: 'The "email" entered is non-existent'
+            };
+            return response;
         }
 
         const response: ResponseReq = {
             code: 200,
             status: 'success',
-            text: 'Login successful',
-            user: userResponse,
-            token: token
+            text: 'Login successful / verification email sent',
+            user: userResponse
         };
 
         return response;
@@ -59,10 +63,51 @@ const signInWithEmailAndPassword = async (user: User) => {
     };
 
     return response;
-
 };
 
-const sendVerificationCodebyEmail = async (user: User) => {
+const sendPasswordResetEmail = async (user: User) => {
+
+    const { email } = user;
+    const [users]: User[] = await userModel.getEmail(email) as User[];
+
+    if (!users) {
+        const response: ResponseReq = {
+            code: 404,
+            status: 'error',
+            text: 'The "email" entered is non-existent'
+        };
+        return response;
+    }
+
+    const userResponse: User = {
+        uid: users.uid,
+        displayName: users.displayName,
+        email: users.email,
+        photo: users.photo,
+        emailVerification: users.emailVerification,
+    }
+    
+    const sendEmail = await sendVerificationCodebyEmail(userResponse, 'Código para redefinir sua senha: ')
+
+    if(sendEmail.code != 200){
+        const response: ResponseReq = {
+            code: 404,
+            status: 'error',
+            text: 'The "email" entered is non-existent'
+        };
+        return response;
+    }
+    const response: ResponseReq = {
+        code: 200,
+        status: 'success',
+        text: 'email to change password sent',
+        user: userResponse
+    };
+
+    return response;
+};
+
+const sendVerificationCodebyEmail = async (user: User, message: string) => {
 
     const { email } = user;
     const [users]: User[] = await userModel.getEmail(email) as User[];
@@ -81,8 +126,6 @@ const sendVerificationCodebyEmail = async (user: User) => {
     const expiresAt = Date.now() + 10 * 60 * 1000;
     const hashCode = await bcrypt.hash(code, 10);
 
-    const message: string = "Código para verificar seu endereço de e-mail: ";
-
     const updateUsers = await userModel.updateUsersCodeVerification(users.uid, hashCode + '---' + expiresAt);
     const emailVerification = await userServices.sendEmailVerification(users.displayName, users.email, message, code);
 
@@ -98,8 +141,8 @@ const sendVerificationCodebyEmail = async (user: User) => {
 
 const validateVerificationCode = async (user: User) => {
 
-    const { email, codeVerification } = user;
-    const [users]: User[] = await userModel.getEmail(email) as User[];
+    const { uid, codeVerification } = user;
+    const [users]: User[] = await userModel.getUID(uid) as User[];
 
     if (!users) {
         const response: ResponseReq = {
@@ -130,7 +173,6 @@ const validateVerificationCode = async (user: User) => {
             uid: users.uid,
             displayName: users.displayName,
             email: users.email,
-            password: '"password" not available',
             photo: users.photo,
             emailVerification: users.emailVerification,
         }
@@ -147,7 +189,7 @@ const validateVerificationCode = async (user: User) => {
     }
 
     const response: ResponseReq = {
-        code: 404,
+        code: 409,
         status: 'error',
         text: 'The "code" entered has expired or is invalid'
     };
@@ -155,86 +197,9 @@ const validateVerificationCode = async (user: User) => {
     return response;
 }
 
-const sendPasswordResetEmail = async (user: User) => {
-
-    const { email } = user;
-    const [users]: User[] = await userModel.getEmail(email) as User[];
-
-    if (!users) {
-        const response: ResponseReq = {
-            code: 404,
-            status: 'error',
-            text: 'The "email" entered is non-existent'
-        };
-        return response;
-    }
-
-    const code: string = await userServices.createCodeVerifyEmail();
-    const expiresAt = Date.now() + 10 * 60 * 1000;
-    const hashCode = await bcrypt.hash(code, 10);
-    
-    const message: string = "Código para redefinir sua senha: ";
-    
-    const updateUsers = await userModel.updateUsersCodeVerification(users.uid, hashCode + '---' + expiresAt);
-    const emailVerification = await userServices.sendEmailVerification(users.displayName, users.email, message, code);
-
-    const response: ResponseReq = {
-        code: 200,
-        status: 'success',
-        text: 'email to change password sent'
-    };
-
-    return response;
-};
-
-
-
-
-
-// const updateEmailVerification = async (uid, user) => {
-
-//     const [users] = await connection.execute('SELECT * FROM users WHERE uid = ?', [uid]);
-
-//     let emailVerificationUser = user.emailVerification;
-//     const { email, password, emailVerification, displayName, photo } = users[0];
-
-//     if (emailVerificationUser === undefined) emailVerificationUser = emailVerification;
-
-//     const query = 'UPDATE users SET uid = ?, displayName = ?, email = ?, password = ?, photo = ?, emailVerification = ? WHERE uid = ?';
-
-//     const [updatedUsers] = await connection.execute(query, [uid, displayName, email, password, photo, emailVerificationUser, uid]);
-
-//     return {
-//         status: 'success',
-//         text: 'user updated with successful email verification',
-//         updatedUsers: updatedUsers
-//     };
-// };
-
-// const updatePassword = async (uid, user) => {
-
-//     const [users] = await connection.execute('SELECT * FROM users WHERE uid = ?', [uid]);
-
-//     let passwordUser = user.password;
-//     const { email, password, emailVerification, displayName, photo } = users[0];
-
-//     if (passwordUser === undefined) passwordUser = password;
-
-//     const query = 'UPDATE users SET uid = ?, displayName = ?, email = ?, password = ?, photo = ?, emailVerification = ? WHERE uid = ?';
-
-//     const [updatedUsers] = await connection.execute(query, [uid, displayName, email, passwordUser, photo, emailVerification, uid]);
-
-//     return {
-//         status: 'success',
-//         text: 'user password updated successfully',
-//         email: email,
-//         updatedUsers: updatedUsers
-//     };
-// };
-
-
-
-
-
-
-export default { signInWithEmailAndPassword, sendVerificationCodebyEmail, validateVerificationCode, sendPasswordResetEmail }
+export default { 
+    sendPasswordResetEmail,
+    validateVerificationCode,
+    signInWithEmailAndPassword, 
+    sendVerificationCodebyEmail
+}

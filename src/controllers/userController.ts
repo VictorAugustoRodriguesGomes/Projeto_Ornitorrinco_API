@@ -1,17 +1,34 @@
+import { User } from './../interfaces/User';
 import { Request, Response } from "express";
 import userModel from "../models/userModel";
 import authenticationModel from "../models/authenticationModel";
 
-
-import { User } from "../interfaces/User";
 import { ResponseReq } from "../interfaces/ResponseReq";
 import multer from "multer";
-
 
 const getAll = async (_req: Request, res: Response) => {
     const user = await userModel.getAll();
     return res.status(200).json(user);
 }
+
+const userProfile = async (req: Request, res: Response) => {
+    const userResponse: User = {
+        uid: req.user.uid,
+        displayName: req.user.displayName,
+        email: req.user.email,
+        photo: req.user.photo,
+        emailVerification: req.user.emailVerification,
+    }
+
+    const response: ResponseReq = {
+        code: 201,
+        status: 'success',
+        text: 'Success in searching for user profile',
+        user: userResponse
+    };
+    
+    return res.status(response.code).json(response);
+};
 
 const createUser = async (req: Request, res: Response) => {
     const createUser: ResponseReq = await userModel.createUser(req.body);
@@ -29,10 +46,8 @@ const updateUsersPassword = async (req: Request, res: Response) => {
 };
 
 const deleteUsers = async (req: Request, res: Response) => {
-    const { id } = req.params;
-
-    const deleteUsers = await userModel.deleteUsers(id);
-    return res.status(201).json(deleteUsers);
+    const deleteUsers = await userModel.deleteUsers(req.user.uid);
+    return res.status(deleteUsers.code).json(deleteUsers);
 };
 
 const signInWithEmailAndPassword = async (req: Request, res: Response) => {
@@ -40,9 +55,9 @@ const signInWithEmailAndPassword = async (req: Request, res: Response) => {
     return res.status(signInWithEmailAndPassword.code).json(signInWithEmailAndPassword);
 };
 
-const sendVerificationCodebyEmail = async (req: Request, res: Response) => {
-    const sendVerificationCodebyEmail = await authenticationModel.sendVerificationCodebyEmail(req.body);
-    return res.status(sendVerificationCodebyEmail.code).json(sendVerificationCodebyEmail);
+const sendPasswordResetEmail = async (req: Request, res: Response) => {
+    const sendPasswordResetEmail = await authenticationModel.sendPasswordResetEmail(req.body);
+    return res.status(sendPasswordResetEmail.code).json(sendPasswordResetEmail);
 };
 
 const validateVerificationCode = async (req: Request, res: Response) => {
@@ -50,41 +65,31 @@ const validateVerificationCode = async (req: Request, res: Response) => {
     return res.status(validateVerificationCode.code).json(validateVerificationCode);
 };
 
-
 const upload = async (req: Request, res: Response) => {
-    const response: ResponseReq = {
-        code: 200,
-        status: 'success',
-        text: 'Image uploaded successfully',
-    };
-
+    
     if (!req.file) {
-        response.code = 400;
-        response.status = 'error';
-        response.text = 'Image upload failed';
+        const response: ResponseReq = {
+            code: 400,
+            status: 'error',
+            text: 'Image upload failed',
+        };
         return res.status(response.code).json(response);
     }
-    const fileUrl = `${req.protocol}://${req.get('host')}/public/uploads/profile/${req.file.filename}`;
 
-    response.text = response.text + ' ' + fileUrl;
-    return res.status(response.code).json(response);
-};
-
-
-const sendPasswordResetEmail = async (req: Request, res: Response) => {
-    const sendPasswordResetEmail = await authenticationModel.sendPasswordResetEmail(req.body);
-    return res.status(sendPasswordResetEmail.code).json(sendPasswordResetEmail);
+    const updateUsersPhoto = await userModel.updateUsersPhoto(req.user.uid, `/public/uploads/profile/${req.file.filename}`);
+    updateUsersPhoto.text = updateUsersPhoto.text + ` ${req.protocol}://${req.get('host')}/public/uploads/profile/${req.file.filename}`;
+    return res.status(updateUsersPhoto.code).json(updateUsersPhoto);
 };
 
 export default {
     getAll,
+    upload,
     createUser,
-    updateUsersDisplayName,
     deleteUsers,
+    userProfile,
     updateUsersPassword,
     sendPasswordResetEmail,
-    signInWithEmailAndPassword,
-    sendVerificationCodebyEmail,
+    updateUsersDisplayName,
     validateVerificationCode,
-    upload
+    signInWithEmailAndPassword
 };

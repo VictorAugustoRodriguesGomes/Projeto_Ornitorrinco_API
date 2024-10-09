@@ -20,10 +20,11 @@ const authenticationMiddlewares = async (req: Request, res: Response, next: Next
     const response: ResponseReq = {
         code: 401,
         status: 'error',
-        text: 'The "token" is invalid'
+        text: 'The "token" has expired or is invalid'
     };
 
-    if (!authorization) { return res.status(response.code).json(response); }
+    if (!authorization) { response.text = '"token" not presented in the request'; return res.status(response.code).json(response); }
+
     const token = authorization.split(' ')[1];
 
     try {
@@ -34,12 +35,11 @@ const authenticationMiddlewares = async (req: Request, res: Response, next: Next
     }
 
     const [user]: User[] = await userModel.getUID(uidUser) as User[];
-    if (!user) { return res.status(response.code).json(response); }
+    if (!user) { response.text = 'The "token" does not belong to a user'; return res.status(response.code).json(response); }
 
     req.user = user;
 
     next();
-
 }
 
 export default { authenticationMiddlewares };

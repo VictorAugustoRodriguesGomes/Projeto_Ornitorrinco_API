@@ -1,4 +1,4 @@
-import "dotenv/config"
+import "dotenv/config";
 import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
@@ -20,15 +20,20 @@ const createCodeVerifyEmail = () => {
     return code;
 };
 
+
 const create_Html = (name: string, emailMessage: string, code: string) => {
     const html = `
     <section
-          style="text-align: center; background: #eef1f7; margin: 0px; padding: 10px; border-radius: 5px;">
-              <h1 style="font-size: 22px; font-weight: 600; color: #000000"> Olá, ${name} </h1>
-              <h2 style="font-size: 16px; font-weight: 300; color: #000"> ${emailMessage} </h2>
-              <h1 style="font-size: 30px; font-weight: 800; color: #000"> ${code.charAt(0) + code.charAt(1)}  ${code.charAt(2) + code.charAt(3)}  ${code.charAt(4) + code.charAt(5)} </h1>
-              <h2 style="font-size: 16px; font-weight: 300; color: #000"> Obrigado,</h2>
-              <h2 style="font-size: 16px; font-weight: 300; color: #000"> Projeto Ornitorrinco </h2>
+          style="text-align: center; background: #eef1f7; margin: 0px; padding: 10px; border-radius: 5px; border: solid 1px #1f2b44;">
+              <h1 style="font-size: 22px; font-weight: 600; color: #1f2b44"> Olá, ${name} </h1>
+              <div style="font-size: 16px; font-weight: 300; color: #000000" line-height: 1; margin: 0 0 5px 0; padding: 0;> ${emailMessage} </div>
+              <div style="font-size: 16px; font-weight: 300; color: #000000" line-height: 1; margin: 0 0 5px 0; padding: 0;> Ele só pode ser usado dentro dos próximos 10 minutos e deixará de ser válido em seguida: </div>
+              <h1 style="font-size: 30px; font-weight: 800; color: #1f2b44"> ${code.charAt(0) + code.charAt(1)}  ${code.charAt(2) + code.charAt(3)}  ${code.charAt(4) + code.charAt(5)} </h1>
+              <h2 style="font-size: 16px; font-weight: 300; color: #000000"> Informamos que, ao efetuar o login, sua sessão será válida por 100 horas. Aproveite! </h2>
+              <div style="font-size: 16px; font-weight: 300; color: #000000; line-height: 1; margin: 10px 0 5px 0; padding: 0;">Atenciosamente,</div>
+              <div style="font-size: 16px; font-weight: 300; color: #000000; line-height: 1; margin: 0 0 5px 0; padding: 0;">Projeto Ornitorrinco</div>
+              <div style="font-size: 16px; font-weight: 300; color: #000000; line-height: 1; margin: 0 0 20px 0; padding: 0;">Desenvolvido por Victor Augusto.</div>
+
               <hr>
               <p style="font-size: 14px; font-weight: 100;">Se você não solicitou a verificação deste endereço, ignore
                   este e-mail.</p>
@@ -36,6 +41,7 @@ const create_Html = (name: string, emailMessage: string, code: string) => {
   `;
     return html;
 };
+
 
 const sendEmailVerification = (nomeUser: string, emailUser: string, emailMessage: string, codUser: string) => {
     const tranportador = nodemailer.createTransport({
@@ -49,12 +55,11 @@ const sendEmailVerification = (nomeUser: string, emailUser: string, emailMessage
     } as SMTPTransport.Options);
 
     tranportador.sendMail({
-        from: 'Projeto Ornitorrinco <sydis2022@gmail.com>',
+        from: `Projeto Ornitorrinco < ${process.env.Email_Users_USER} >`,
         to: emailUser,
         subject: 'Verificação de Conta',
         html: create_Html(nomeUser, emailMessage, codUser)
-    })
-    .then(() => {
+    }).then(() => {
         return 'success'
     }).catch((error) => {
         return 'erro'
