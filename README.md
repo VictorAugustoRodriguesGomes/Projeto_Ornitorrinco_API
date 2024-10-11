@@ -68,13 +68,13 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 3. [Visual Studio](https://code.visualstudio.com/) ou outro editor de código.
 
 ## Para Configurar o aplicativo:
-1. Com projeto aberto no Visual Studio, Execute o comando para iniciar um projeto node.js
+1. Com projeto aberto no Visual Studio, execute o comando para iniciar um projeto node.js.
 
-2. Na pasta raiz Crie um arquivo chamado : ".env".
+2. Na pasta raiz, crie um arquivo chamado : ".env".
  
-3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole arquivo acabou de criar
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole arquivo acabou de criar.
 
-4. Para finalizar Informe os valores das Variáveis seguindo as exigências
+4. Para finalizar, informe os valores das Variáveis seguindo os comentários do arquivo.
 
 </br>
 
@@ -91,17 +91,17 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 3. [Visual Studio](https://code.visualstudio.com/) ou outro editor de código.
 
 ## Para Configurar o site :
-1. Com projeto aberto no Visual Studio, Execute o comando para iniciar um projeto react.js
- 
-2. Na pasta raiz Crie um arquivo chamado : ".env".
- 
-3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no arquivo acabou de criar
+1. Com projeto aberto no Visual Studio, execute o comando para iniciar um projeto node.js.
 
-4. Para finalizar Informe os valores das Variáveis seguindo as exigências
+2. Na pasta raiz, crie um arquivo chamado : ".env".
+ 
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole arquivo acabou de criar.
+
+4. Para finalizar, informe os valores das Variáveis seguindo os comentários do arquivo.
 
 </br>
 
-# frontend Android (aplicativo para dispositivos móveis Android)
+# Sobre o Android (aplicativo para dispositivos móveis Android)
 #### Para poder ter aceso ao aplicativo clique no link abaixo: 
 1. [Baixar APK do Projeto SyDis](https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco_API/tree/main/APK%20do%20Projeto%20Ornitorrinco).
 
@@ -118,6 +118,8 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
  
 2. Altere o valor da variável "BASE_URL" para o link da API Que está rodando localmente no seu computador.
 
+### Em caso de dúvidas:
+1. Caso tenha dúvidas de como abrir os arquivo do projeto no Android Studio basta seguir passo a passo desse tutorial. [Android Studio Git Tutorial](https://javapapers.com/android/android-studio-git-tutorial/).
 
 # Licença
 
