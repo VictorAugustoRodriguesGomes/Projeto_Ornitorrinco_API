@@ -121,10 +121,14 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 ### Em caso de dúvidas:
 1. Caso tenha dúvidas de como abrir os arquivo do projeto no Android Studio basta seguir passo a passo desse tutorial. [Android Studio Git Tutorial](https://javapapers.com/android/android-studio-git-tutorial/).
 
+</br>
+
 # Licença
 
 Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
 
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png" width="100%" height="200px"/>
+<div align="center" >
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png" width="200px" />
+</div>
