@@ -35,6 +35,17 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 </div>
 
+## Imagens do Projeto Ornitorrinco referente ao site
+
+<div align="center">
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img09.png" width="400"/>
+
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img10.png" width="400"/>
+
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img11.png" width="400"/>
+
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img12.png" width="400"/>
+
 ## Imagens do Projeto Ornitorrinco referente ao aplicativo para dispositivos móveis Android
 
 <div align="center">
@@ -54,6 +65,38 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 2. [Node.js](https://nodejs.org/pt),
 3. [Visual Studio](https://code.visualstudio.com/) ou outro editor de código.
 
+## Para Configurar o aplicativo:
+1. Com projeto aberto no Visual Studio, Execute o comando para iniciar um projeto node.js
+
+2. Na pasta raiz Crie um arquivo chamado : ".env".
+ 
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no aqui porque acabou de criar
+
+4. Para finalizar Informe os valores das Variáveis seguindo as Exigências
+
+</br>
+
+# Sobre o site do projeto:
+#### Para poder ter aceso ao site clique no link abaixo:
+1. [Site do Projeto Ornitorrinco](https://projeto-ornitorrinco.netlify.app/).
+
+#### O link do repositório do aplicativo se encontra abaixo:
+1. [Projeto Ornitorrinco Frontend Web](https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco_Frontend_Web).
+
+#### Para poder ter acesso e alterar ou executar a o site no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+1. [Git](https://git-scm.com),
+2. [Node.js](https://nodejs.org/pt),
+3. [Visual Studio](https://code.visualstudio.com/) ou outro editor de código.
+
+## Para Configurar o site :
+1. Com projeto aberto no Visual Studio, Execute o comando para iniciar um projeto react.js
+ 
+2. Na pasta raiz Crie um arquivo chamado : ".env".
+ 
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no aqui porque acabou de criar
+
+4. Para finalizar Informe os valores das Variáveis seguindo as Exigências
+
 </br>
 
 # Sobre o aplicativo para dispositivos móveis Android
@@ -61,14 +104,23 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 1. [Baixar APK do Projeto SyDis](https://github.com/VictorAugustoRodriguesGomes/Projeto_SyDis/tree/main/APK%20do%20projeto%20SyDis).
 
 #### O link do repositório do aplicativo se encontra abaixo:
-1. [Projeto Ornitorrinco Frontend Mobile](https://github.com/VictorAugustoRodriguesGomes/Projeto_SyDis/tree/main/APK%20do%20projeto%20SyDis).
+1. [Projeto Ornitorrinco Frontend Mobile](https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco_Frontend_Android).
 
-#### Para poder ter acesso e alterar ou executar a API no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+#### Para poder ter acesso e alterar ou executar a o aplicativo no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 1. [Git](https://git-scm.com),
 2. [Android Studio](https://developer.android.com/studio?hl=pt-br). 
+
+## Para Configurar o aplicativo:
+1. Com projeto aberto no Android Studio, Localize o seguinte arquivo:
+ "ApiConnection / Connection.java"
+ 
+2. Altere o valor da variável "BASE_URL" para o link da API Que está rodando localmente no seu computador.
+
 
 # Licença
 
 Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
+
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png"/>
