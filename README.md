@@ -35,7 +35,7 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 </div>
 
-## Imagens do Projeto Ornitorrinco referente ao site
+## Imagens do Projeto Ornitorrinco referente ao frontend Web (site)
 
 <div align="center">
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img09.png" width="400"/>
@@ -46,7 +46,9 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img12.png" width="400"/>
 
-## Imagens do Projeto Ornitorrinco referente ao aplicativo para dispositivos móveis Android
+</div>
+
+## Imagens do Projeto Ornitorrinco referente ao frontend Android (aplicativo para dispositivos móveis Android)
 
 <div align="center">
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/img05.png" width="400"/>
@@ -59,7 +61,7 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 </div>
 
-# Pré-requisitos
+# Sobre a API:
 #### Para poder o alterar ou executar a API no seu computador, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 1. [Git](https://git-scm.com),
 2. [Node.js](https://nodejs.org/pt),
@@ -70,13 +72,13 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
 
 2. Na pasta raiz Crie um arquivo chamado : ".env".
  
-3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no aqui porque acabou de criar
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole arquivo acabou de criar
 
-4. Para finalizar Informe os valores das Variáveis seguindo as Exigências
+4. Para finalizar Informe os valores das Variáveis seguindo as exigências
 
 </br>
 
-# Sobre o site do projeto:
+# Sobre o frontend Web (site):
 #### Para poder ter aceso ao site clique no link abaixo:
 1. [Site do Projeto Ornitorrinco](https://projeto-ornitorrinco.netlify.app/).
 
@@ -93,15 +95,15 @@ O aplicativo foi desenvolvido no Android Studio, utilizando a linguagem de progr
  
 2. Na pasta raiz Crie um arquivo chamado : ".env".
  
-3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no aqui porque acabou de criar
+3. Depois acesse o arquivo ".env.example", copiei todas as variáveis existente e cole no arquivo acabou de criar
 
-4. Para finalizar Informe os valores das Variáveis seguindo as Exigências
+4. Para finalizar Informe os valores das Variáveis seguindo as exigências
 
 </br>
 
-# Sobre o aplicativo para dispositivos móveis Android
+# frontend Android (aplicativo para dispositivos móveis Android)
 #### Para poder ter aceso ao aplicativo clique no link abaixo: 
-1. [Baixar APK do Projeto SyDis](https://github.com/VictorAugustoRodriguesGomes/Projeto_SyDis/tree/main/APK%20do%20projeto%20SyDis).
+1. [Baixar APK do Projeto SyDis](https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco_API/tree/main/APK%20do%20Projeto%20Ornitorrinco).
 
 #### O link do repositório do aplicativo se encontra abaixo:
 1. [Projeto Ornitorrinco Frontend Mobile](https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco_Frontend_Android).
@@ -123,4 +125,4 @@ Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
 
-<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png"/>
+<img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png" width="100%" height="200px"/>
