@@ -129,6 +129,7 @@ Este projeto é licenciado sob os termos da licença Apache 2.0.
 
 ---------
 
+
 <div align="center" >
 <img src="https://github.com/VictorAugustoRodriguesGomes/Projeto_Ornitorrinco/blob/main/Imagem%20do%20projeto%20ornitorrinco/icone.png" width="200px" />
 </div>
